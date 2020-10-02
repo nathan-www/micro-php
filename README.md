@@ -1,7 +1,7 @@
 # teeny-php
 A tiny, one-file PHP microframework.  
-Teeny is a tiny framework made for simplicity and ease of use. It takes some basic principals from Slim and Laravel, but takes out the difficult installation and steep learning curve.<br>
-**Core features**
+Teeny is a tiny framework made for simplicity and ease of use. It takes some basic principals from Slim and Laravel, but takes out the difficult installation and steep learning curve.<br><br>
+**Core features:**
 * Routing
 * Validation
 * Template engine
