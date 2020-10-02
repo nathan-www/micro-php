@@ -1,6 +1,11 @@
 # teeny-php
-A tiny, one-file PHP microframework.
-Teeny is a tiny framework made for simplicity and ease of use. It takes some basic principals from Slim and Laravel, but takes out the difficult installation and steep learning curve. It's simple enough that you don't need to spend days learning, but still offers features to significantly improve your PHP development.
+A tiny, one-file PHP microframework.  
+Teeny is a tiny framework made for simplicity and ease of use. It takes some basic principals from Slim and Laravel, but takes out the difficult installation and steep learning curve.<br>
+**Core features**
+* Routing
+* Validation
+* Template engine
+* Error handling
 
 ## Installation
 
@@ -16,4 +21,22 @@ require 'path/to/teeny.php';
 ```
 
 ### Web server setup
-You'll need to configure your web server to re-route all incoming requests to your main app file (eg. index.php)
+You'll need to configure your web server to re-route all incoming requests to your main app file (eg. index.php).  
+If your running Apache, you can add this .htaccess file to the root of your app's directory:
+```
+Options +FollowSymLinks -Indexes
+RewriteEngine On
+
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+```
+If running Nginx, you can add this directive to your site configuration:
+```
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+```
