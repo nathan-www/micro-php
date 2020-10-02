@@ -24,7 +24,7 @@ require 'path/to/teeny.php';
 
 ### Web server setup
 You'll need to configure your web server to re-route all incoming requests to your main app file (eg. index.php).  
-If your running Apache, you can add this .htaccess file to the root of your app's directory:
+If you're running Apache, you can add this .htaccess file to the root of your app's directory:
 ```
 Options +FollowSymLinks -Indexes
 RewriteEngine On
@@ -46,5 +46,45 @@ location / {
 ...And that's it! Teeny is ready to go.
 <br>
 ## Getting started
+
+In your main app file, you'll need to create a new instance of the teeny_app class.  
+You can run your app with `$app->run();`, but you'll need to define all your routes first.  
+
+eg.
+```
+<?php
+ 
+require 'path/to/teeny.php';
+$app = new teeny_app();
+
+$app->get('/test',function(){
+  echo "Hello world!";
+});
+
+$app->run();
+```
+
+This creates a new route for the URL */test*. If you visit yourdomain.tld/test, you should see the text "Hello world!" displayed.
+
+### Routes
+
+Routes allow you to determine certain actions based on the URL requested by the user. <br>
+A basic example will accept a file path (string) and a closure. The closure will be run if the incoming HTTP request URL matches the given file path.
+```
+$app->req('/file/path/',function(){
+  //Do something.
+});
+```
+You can create routes with:  
+**$app->req($url,$options,$function,$error)** - Will catch all types of HTTP request (GET, POST, PUT etc.)
+**$app->get($url,$options,$function,$error)** - Will only catch GET requests  
+**$app->post($url,$options,$function,$error)** - Will only catch POST requests  
+
+**$url** - String denoting the file path. 
+* You can use an astericks (\*) to create wildcard rule. eg. `/wild/*` will match any path beginning with `/wild/`.
+* You can also create URL parameters with two curly braces. eg. `/country/{{country_name}}` - which will catch `/country/Iceland` and parse `Iceland` as the parameter `country_name`
+
+
+
 
 
