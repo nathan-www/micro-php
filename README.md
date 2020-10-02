@@ -7,7 +7,6 @@ Teeny is a tiny framework made for simplicity and ease of use. It takes some bas
 * Template engine
 * Error handling
 
-<br>
 **Important note:** This project is in development, there may be weird bugs and hiccups. Use at your own discretion.
 
 ## Installation
