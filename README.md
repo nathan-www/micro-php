@@ -7,6 +7,9 @@ Teeny is a tiny framework made for simplicity and ease of use. It takes some bas
 * Template engine
 * Error handling
 
+<br><br>
+**Important note:** This project is in development, there may be weird bugs and hiccups. Use at your own discretion.
+
 ## Installation
 
 First, create a new PHP file. This will be the main app file where all HTTP requests are routed to.
@@ -40,3 +43,9 @@ location / {
     try_files $uri $uri/ /index.php?$query_string;
 }
 ```
+
+...And that's it! Teeny is ready to go.
+<br>
+## Getting started
+
+
