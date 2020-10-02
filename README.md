@@ -12,7 +12,7 @@ Then upload the teeny.php file anywhere on the server and include it in your mai
 <?php
  
 //My new Teeny app
-include 'path/to/teeny.php';
+require 'path/to/teeny.php';
 ```
 
 ### Web server setup
