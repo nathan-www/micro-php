@@ -66,8 +66,9 @@ $app->run();
 
 This creates a new route for the URL */test*. If you visit domain.com/test, you should see the text "Hello world!" displayed.
 
-**Please note:** If your main file is not in the root directory for your domain name, you'll may wish to set a new root directory in your app.
+**Please note:** If you are handling requuests not from the root directory for your domain name, you'll may wish to set a new root directory in your app.
 Eg. If you are handling pages within a subdirectory domain.com/dir/, you can add `$app->set_root('/dir/');`.
+
 Otherwise, when creating routes you will need to prepend '/dir/' before every path.
 
 ### Routes
