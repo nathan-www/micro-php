@@ -89,8 +89,43 @@ You can create routes with:
 * You can use an astericks (\*) to create wildcard rule. eg. `/wild/*` will match any path beginning with `/wild/`.
 * You can also create URL parameters with two curly braces. eg. `/country/{{country_name}}` - which will catch `/country/Iceland` and parse `Iceland` as the parameter `country_name`
 
-**The closure**
-All routes carry a closure `function(){ //Like so }` to handle that specific HTTP request. 
+**$options** *(optional)*- An array containing additional options such as GET, POST and URL parameter validation and custom validators. See the validation section later on for full details.
+
+**$function** - This is the closure which will handle all requests via the route. You can optionally add a single parameter to the closure to pass data into it. Eg.
+```
+$app->req($url,$options,function($data){
+
+   $data = [
+     "url_params"=>["key"=>"value"],
+     "get"=>["key"=>"value"],
+     "post"=>["key"=>"value"],
+     "json"=>["key"=>"value"]
+  ];
+ 
+},$error);
+```
+$data is an array containing four items. Each of these items contains an associative array of key-value pairs.
+* **url_params** - The URL paramters as specified in the $url
+* **get** - The GET paramters
+* **post** - The POST paramters
+* **json** - If JSON is sent via a POST request it will appear, decoded, here
+
+**$error** *(optional)* - Accepts a second closure which will called instead of the $function closure if an error occurs during validation. This is optional, and if not specified any error will be handled via the default error page or global error page set by you (See error handling later on). You can also pass a single parameter $message which will contain the error message.
+
+## Validation
+
+Within the **$options** parameter of every route, you can specify validations to be performed on GET, POST, JSON and URL parameters passed in that request. Eg.
+```
+$app->req($url,[
+ "get"=>[
+   "param1",
+   "param2"=>[
+     "validate"=>"email",
+     "required"=>false
+   ]
+ ]
+],$function,$error);
+```
 
 
 
