@@ -71,7 +71,7 @@ Eg. If you are handling pages within a subdirectory domain.com/dir/, you can add
 
 Otherwise, when creating routes you will need to prepend '/dir/' before every path.
 
-### Routes
+## Routes
 
 Routes allow you to determine certain actions based on the URL requested by the user. <br>
 A basic example will accept a file path (string) and a closure. The closure will be run if the incoming HTTP request URL matches the given file path.
