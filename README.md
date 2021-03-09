@@ -64,7 +64,11 @@ $app->get('/test',function(){
 $app->run();
 ```
 
-This creates a new route for the URL */test*. If you visit yourdomain.tld/test, you should see the text "Hello world!" displayed.
+This creates a new route for the URL */test*. If you visit domain.com/test, you should see the text "Hello world!" displayed.
+
+**Please note:** If your main file is not in the root directory for your domain name, you'll may wish to set a new root directory in your app.
+Eg. If you are handling pages within a subdirectory domain.com/dir/, you can add `$app->set_root('/dir/');`.
+Otherwise, when creating routes you will need to prepend '/dir/' before every path.
 
 ### Routes
 
@@ -83,6 +87,10 @@ You can create routes with:
 **$url** - String denoting the file path. 
 * You can use an astericks (\*) to create wildcard rule. eg. `/wild/*` will match any path beginning with `/wild/`.
 * You can also create URL parameters with two curly braces. eg. `/country/{{country_name}}` - which will catch `/country/Iceland` and parse `Iceland` as the parameter `country_name`
+
+**The closure**
+All routes carry a closure `function(){ //Like so }` to handle that specific HTTP request. 
+
 
 
 
