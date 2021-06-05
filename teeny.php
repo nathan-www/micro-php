@@ -81,6 +81,9 @@ class teeny_app{
 
     //Stores all the error routes
     public $error_routes = [];
+    
+    //Project directory
+    public $project_dir = "";
 
 
     //Adds slashes before and after a string
@@ -136,7 +139,7 @@ class teeny_app{
 
         $this->routes[] = [
             "method"=>$method,
-            "url"=>$url,
+            "url"=>$this->rem_slash($this->project_dir).$this->add_slashes($url),
             "function"=>$func,
             "options"=>$options,
             "error"=>$error
@@ -150,6 +153,10 @@ class teeny_app{
         ];     
     }
 
+    //Sets the project directory, if its not the root domain
+    function set_dir($dir){
+        $this->project_dir = $dir;
+    }
 
     //Creates the request object to serve to handling function
     function request_object($route,$url_params){
