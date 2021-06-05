@@ -154,7 +154,7 @@ class teeny_app{
     }
 
     //Sets the project directory, if its not the root domain
-    function set_dir($dir){
+    function set_root($dir){
         $this->project_dir = $dir;
     }
 
