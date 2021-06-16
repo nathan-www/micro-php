@@ -1,6 +1,6 @@
-# teeny-php
+# micro-php
 A tiny, one-file PHP microframework.  
-Teeny is a tiny framework made for simplicity and ease of use. It takes some basic principals from Slim and Laravel, but takes out the difficult installation and steep learning curve.<br><br>
+Micro is a tiny framework made for simplicity and ease of use. It takes some basic principals from Slim and Laravel, but takes out the difficult installation and steep learning curve.<br><br>
 **Core features:**
 * Routing
 * Validation
@@ -12,14 +12,14 @@ Teeny is a tiny framework made for simplicity and ease of use. It takes some bas
 ## Installation
 
 First, create a new PHP file. This will be the main app file where all HTTP requests are routed to.
-Then upload the teeny.php file anywhere on the server and include it in your main file.
+Then upload the micro.php file anywhere on the server and include it in your main file.
 
 **index.php**
 ```
 <?php
  
-//My new Teeny app
-require 'path/to/teeny.php';
+//My new Micro app
+require 'path/to/micro.php';
 ```
 
 ### Web server setup
@@ -43,19 +43,19 @@ location / {
 }
 ```
 
-...And that's it! Teeny is ready to go.
+...And that's it! Micro is ready to go.
 <br>
 ## Getting started
 
-In your main app file, you'll need to create a new instance of the teeny_app class.  
+In your main app file, you'll need to create a new instance of the micro_app class.  
 You can run your app with `$app->run();`, but you'll need to define all your routes first.  
 
 eg.
 ```
 <?php
  
-require 'path/to/teeny.php';
-$app = new teeny_app();
+require 'path/to/micro.php';
+$app = new micro_app();
 
 $app->get('/test',function(){
   echo "Hello world!";
