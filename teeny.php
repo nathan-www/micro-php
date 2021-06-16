@@ -1,11 +1,11 @@
 <?php
 
 /*******
-Teeny PHP Micro-framework
+MicroPHP Micro-framework
 Copyright (C) Nathan Arnold <nathanarnold.co.uk> 2020
 *******/
 
-class teeny_app{
+class micro_app{
 
     //Checks whether the request URL matches a pattern
     function url_match($pattern,$url){
@@ -259,7 +259,7 @@ class teeny_app{
 
             if(isset($messages[$http_code])){
                 echo "<h1>".$http_code." ".$messages[$http_code]."</h1>
-                <hr><p><i>Teeny PHP</i></p>";
+                <hr><p><i>Micro PHP</i></p>";
             }
             else{
                 echo "<h1>Error ".$http_code."</h1>";
